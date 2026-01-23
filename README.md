@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lifetrack
 
-## Getting Started
+Ứng dụng quản lý chi tiêu và lịch trình cá nhân với AI Assistant.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-15-black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-38bdf8)
+
+## Tính năng
+
+### Chi tiêu & Thu nhập
+- Ghi nhận chi tiêu/thu nhập nhanh chóng
+- Phân loại tự động theo danh mục (ăn uống, di chuyển, mua sắm, v.v.)
+- Biểu đồ thống kê chi tiêu theo danh mục
+- Theo dõi số dư tổng và theo tháng
+
+### Lịch trình
+- Quản lý sự kiện với calendar view
+- Phân loại sự kiện (công việc, cá nhân, họp, học tập, v.v.)
+- Đánh dấu hoàn thành sự kiện
+
+### AI Chat Assistant
+- Hỗ trợ ngôn ngữ tự nhiên tiếng Việt
+- Tích hợp Ollama AI (local LLM)
+- Rule-based fallback khi không có AI
+- Ví dụ:
+  - "chi 50k ăn trưa"
+  - "nhận 10tr lương"
+  - "họp 3h chiều mai"
+  - "chiều nay 3 giờ có cuộc họp"
+
+## Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **State Management**: Zustand (với localStorage persistence)
+- **Charts**: Recharts
+- **Date**: date-fns
+- **Icons**: Lucide React
+- **AI**: Ollama (optional)
+
+## Cài đặt
 
 ```bash
+# Clone repo
+git clone https://github.com/dranox/Lifetrack.git
+cd Lifetrack
+
+# Cài dependencies
+npm install
+
+# Chạy development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Mở [http://localhost:3000](http://localhost:3000) để xem ứng dụng.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Cài đặt Ollama (Optional)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Để sử dụng AI chat thực sự:
 
-## Learn More
+1. Cài đặt [Ollama](https://ollama.com)
+2. Pull model:
+   ```bash
+   ollama pull qwen2.5-coder
+   ```
+3. Chạy Ollama server (mặc định port 11434)
 
-To learn more about Next.js, take a look at the following resources:
+Nếu không có Ollama, ứng dụng sẽ tự động dùng rule-based parser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Cấu trúc thư mục
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+├── app/
+│   ├── api/chat/       # Ollama API route
+│   ├── chat/           # Chat page
+│   ├── expense/        # Expense page
+│   ├── schedule/       # Schedule page
+│   └── page.tsx        # Dashboard
+├── components/
+│   ├── chat/           # Chat components
+│   ├── dashboard/      # Dashboard components
+│   ├── expense/        # Expense components
+│   ├── schedule/       # Schedule components
+│   └── ui/             # Shared UI components
+├── store/              # Zustand store
+└── types/              # TypeScript types
+```
 
-## Deploy on Vercel
+## Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run dev      # Development server
+npm run build    # Production build
+npm run start    # Start production server
+npm run lint     # Run ESLint
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+MIT
