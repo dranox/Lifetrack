@@ -97,7 +97,3 @@ npm run build    # Production build
 npm run start    # Start production server
 npm run lint     # Run ESLint
 ```
-
-## License
-
-MIT
