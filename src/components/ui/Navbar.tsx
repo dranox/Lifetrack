@@ -6,7 +6,6 @@ import {
   LayoutDashboard,
   Calendar,
   Wallet,
-  MessageCircle,
   Sparkles,
 } from 'lucide-react';
 
@@ -14,7 +13,6 @@ const navItems = [
   { href: '/', icon: LayoutDashboard, label: 'Tổng quan' },
   { href: '/schedule', icon: Calendar, label: 'Lịch trình' },
   { href: '/expense', icon: Wallet, label: 'Chi tiêu' },
-  { href: '/chat', icon: MessageCircle, label: 'AI Chat' },
 ];
 
 export function Navbar() {
@@ -62,7 +60,7 @@ export function Navbar() {
           <div className="bg-gradient-to-r from-violet-500 to-purple-600 rounded-xl p-4 text-white">
             <p className="text-sm font-medium">Pro Tip</p>
             <p className="text-xs opacity-80 mt-1">
-              Sử dụng AI Chat để thêm nhanh sự kiện và giao dịch
+              Nhấn vào bong bóng chat góc phải để nói chuyện với Lifetrack Guy
             </p>
           </div>
         </div>

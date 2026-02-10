@@ -59,8 +59,8 @@ export function ExpenseChart() {
       <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
         Chi tiêu theo danh mục
       </h3>
-      <div className="h-64">
-        <ResponsiveContainer width="100%" height="100%">
+      <div className="h-64 min-h-[256px]">
+        <ResponsiveContainer width="100%" height="100%" minWidth={200} minHeight={200}>
           <PieChart>
             <Pie
               data={chartData}

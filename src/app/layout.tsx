@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/ui/Navbar";
+import { ChatBubbleWrapper } from "@/components/chat/ChatBubbleWrapper";
 
 const inter = Inter({
   subsets: ["latin", "vietnamese"],
@@ -24,6 +25,7 @@ export default function RootLayout({
         <main className="md:ml-64 min-h-screen pb-20 md:pb-0">
           {children}
         </main>
+        <ChatBubbleWrapper />
       </body>
     </html>
   );
